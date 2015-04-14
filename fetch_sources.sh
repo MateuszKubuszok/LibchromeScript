@@ -64,6 +64,10 @@ if [ ! -f tools/gyp/gyp ]; then
 fi
 GypRevision=$(git --git-dir=$Target/tools/gyp/.git rev-parse HEAD)
 
+echo 'Patch build configuration'
+cp "$StartDir/utils/all.gyp" "$Target/build/"
+cp "$StartDir/utils/gyp_chromium" "$Target/build/"
+
 echo "Currently fetched sources' revisions (listed for debug purpose):"
 echo " - Chromium   : $ChromiumRevision"
 echo " - BuildTools : $BuildToolsRevision"
